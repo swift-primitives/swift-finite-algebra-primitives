@@ -1,7 +1,7 @@
 // Parity+Finite.swift
 
-public import Algebra_Primitives
 public import Finite_Primitives
+public import Parity_Primitives
 
 extension Parity: @retroactive Finite.Enumerable {
     /// Number of parity values.

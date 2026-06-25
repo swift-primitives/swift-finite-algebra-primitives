@@ -32,32 +32,6 @@ struct `Cyclic Group - Z2 over Parity` {
     }
 }
 
-// MARK: - Generic ℤ/Nℤ witness, N = 3 (Sign)
-
-@Suite
-struct `Cyclic Group - Z3 over Sign` {
-    @Test
-    func `addition modulo 3`() {
-        // Sign ordinals: positive=0, negative=1, zero=2.
-        let group = Algebra.Group<Sign>.cyclic
-        #expect(group.identity == .positive)             // ordinal 0
-        #expect(group(.negative, .negative) == .zero)    // 1+1 = 2
-        #expect(group(.negative, .zero) == .positive)    // 1+2 = 3 mod 3 = 0
-        #expect(group(.zero, .zero) == .negative)        // 2+2 = 4 mod 3 = 1
-    }
-
-    @Test
-    func `inverse via modular negation`() {
-        let group = Algebra.Group<Sign>.cyclic
-        // inverse of ordinal 1 (negative) is ordinal 2 (zero); 1+2 = 0.
-        #expect(group.inverting(.negative) == .zero)
-        // inverse of ordinal 2 (zero) is ordinal 1 (negative); 2+1 = 0.
-        #expect(group.inverting(.zero) == .negative)
-        // identity is its own inverse.
-        #expect(group.inverting(.positive) == .positive)
-    }
-}
-
 // MARK: - Classification conformances
 
 @Suite
@@ -67,18 +41,5 @@ struct `Classification Finite Conformances` {
         #expect(Parity.count == 2)
         #expect(Parity.even.ordinal == 0)
         #expect(Parity.odd.ordinal == 1)
-    }
-
-    @Test
-    func `monotonicity is enumerable`() {
-        #expect(Monotonicity.count == 3)
-        #expect(Monotonicity.increasing.ordinal == 0)
-    }
-
-    @Test
-    func `ternary is enumerable`() {
-        #expect(Ternary.count == 3)
-        #expect(Ternary.negative.ordinal == 0)
-        #expect(Ternary.positive.ordinal == 2)
     }
 }

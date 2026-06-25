@@ -1,0 +1,9 @@
+# .github/metadata.yaml
+description: "Cyclic-group witnesses and finite conformances bridging the finite and algebra primitives."
+topics:
+  - primitives
+  - finite
+  - algebra
+homepage: "https://swift-institute.org"
+readme:
+  family: E

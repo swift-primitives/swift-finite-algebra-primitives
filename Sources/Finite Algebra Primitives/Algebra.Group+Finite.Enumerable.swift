@@ -11,9 +11,10 @@ public import Finite_Primitives
 /// via its `ordinal` bijection: each value maps to an integer in `0..<N`, and
 /// the group operation is addition modulo `N`. This generic witness confers
 /// that structure on *every* conformer — `Interval.Bound`, `Interval.Boundary`,
-/// `Interval.Endpoint`, `Order.Direction`, the algebra classifications
-/// (`Parity`, `Sign`, `Polarity`, `Monotonicity`, `Ternary`), `Comparison`,
-/// and any user `Finite.Enumerable` — regardless of the conformer's home domain.
+/// `Interval.Endpoint`, the order types (`Order.Direction`, `Order.Monotonicity`),
+/// the algebra classifications (`Parity`, `Polarity`), `Comparison`, the numeric
+/// classifications (`Numeric.Sign`, `Numeric.Ternary`), and any user
+/// `Finite.Enumerable` — regardless of the conformer's home domain.
 ///
 /// - Identity: the value at ordinal `0`.
 /// - Combining: `a ∗ b` is the value at ordinal `(a.ordinal + b.ordinal) mod N`.

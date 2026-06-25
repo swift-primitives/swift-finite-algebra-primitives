@@ -18,11 +18,13 @@ classifications. It depends on `swift-finite-primitives`,
   per-type witnesses previously expressed.
 
 - **The algebra-classification `Finite.Enumerable` conformances** —
-  `Parity`, `Sign`, `Polarity`, `Monotonicity`, and `Ternary` (declared in
-  `swift-algebra-primitives`) are conformed to `Finite.Enumerable` (declared in
-  `swift-finite-primitives`) here, because the conformance needs *both* packages
-  and belongs in neither. These are retroactive conformances per [API-IMPL-018]
-  (the bridge owns neither the types nor the protocol).
+  `Parity` and `Polarity` (declared in `swift-algebra-primitives`) are conformed
+  to `Finite.Enumerable` (declared in `swift-finite-primitives`) here, because the
+  conformance needs *both* packages and belongs in neither. These are retroactive
+  conformances per [API-IMPL-018] (the bridge owns neither the types nor the
+  protocol). The numeric classifications `Numeric.Sign` and `Numeric.Ternary`
+  carry the analogous conformance in `swift-finite-primitives`' `Finite Numeric
+  Primitives` integration target, not here.
 
 This placement is what lets `swift-finite-primitives` drop its dependency on
 `swift-algebra-primitives` / `swift-algebra-group-primitives`: the directions of

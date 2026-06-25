@@ -1,7 +1,7 @@
 // Polarity+Finite.swift
 
-public import Algebra_Primitives
 public import Finite_Primitives
+public import Polarity_Primitives
 
 extension Polarity: @retroactive Finite.Enumerable {
     /// Number of polarity values.

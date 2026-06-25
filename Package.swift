@@ -25,9 +25,10 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../swift-finite-primitives"),
-        .package(path: "../swift-algebra-primitives"),
-        .package(path: "../swift-algebra-group-primitives"),
+        .package(url: "https://github.com/swift-primitives/swift-finite-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-algebra-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-parity-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-polarity-primitives.git", branch: "main"),
     ],
     targets: [
         // MARK: - Integration surface
@@ -36,7 +37,9 @@ let package = Package(
             dependencies: [
                 .product(name: "Finite Primitives", package: "swift-finite-primitives"),
                 .product(name: "Algebra Primitives", package: "swift-algebra-primitives"),
-                .product(name: "Algebra Group Primitives", package: "swift-algebra-group-primitives"),
+                .product(name: "Algebra Group Primitives", package: "swift-algebra-primitives"),
+                .product(name: "Parity Primitives", package: "swift-parity-primitives"),
+                .product(name: "Polarity Primitives", package: "swift-polarity-primitives"),
             ]
         ),
 
