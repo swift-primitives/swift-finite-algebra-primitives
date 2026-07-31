@@ -9,6 +9,12 @@ import Testing
 
 @Suite
 struct `Cyclic Group - Z2 over Parity` {
+    @Suite struct Unit {}
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
+}
+
+extension `Cyclic Group - Z2 over Parity`.Unit {
     @Test
     func `identity is even`() {
         let group = Algebra.Group<Parity>.cyclic
@@ -23,7 +29,9 @@ struct `Cyclic Group - Z2 over Parity` {
         #expect(group(.odd, .even) == .odd)
         #expect(group(.odd, .odd) == .even)
     }
+}
 
+extension `Cyclic Group - Z2 over Parity`.`Edge Case` {
     @Test
     func `every element is self-inverse`() {
         let group = Algebra.Group<Parity>.cyclic
@@ -36,6 +44,12 @@ struct `Cyclic Group - Z2 over Parity` {
 
 @Suite
 struct `Classification Finite Conformances` {
+    @Suite struct Unit {}
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
+}
+
+extension `Classification Finite Conformances`.Unit {
     @Test
     func `parity count and ordinals`() {
         #expect(Parity.count == 2)

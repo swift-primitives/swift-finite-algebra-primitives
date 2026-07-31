@@ -38,12 +38,28 @@ extension Algebra.Group where Element: Finite.Enumerable {
         .init(
             identity: Element(_unchecked: (), ordinal: .zero),
             combining: { lhs, rhs in
+                // swift-linter:disable:next raw value access
+                // REASON: Ordinal/Cardinal expose no modular or wrapping
+                // arithmetic (no +/-/% ladder over Ordinal); the ℤ/Nℤ
+                // combining operation has no typed operation to climb to.
                 let modulus = Element.count.rawValue
+                // swift-linter:disable:next raw value access
+                // REASON: Ordinal/Cardinal expose no modular or wrapping
+                // arithmetic (no +/-/% ladder over Ordinal); the ℤ/Nℤ
+                // combining operation has no typed operation to climb to.
                 let sum = (lhs.ordinal.rawValue + rhs.ordinal.rawValue) % modulus
                 return Element(_unchecked: (), ordinal: Ordinal(sum))
             },
             inverting: { value in
+                // swift-linter:disable:next raw value access
+                // REASON: Ordinal/Cardinal expose no modular or wrapping
+                // arithmetic (no +/-/% ladder over Ordinal); the ℤ/Nℤ
+                // inverting operation has no typed operation to climb to.
                 let modulus = Element.count.rawValue
+                // swift-linter:disable:next raw value access
+                // REASON: Ordinal/Cardinal expose no modular or wrapping
+                // arithmetic (no +/-/% ladder over Ordinal); the ℤ/Nℤ
+                // inverting operation has no typed operation to climb to.
                 let inverse = (modulus - value.ordinal.rawValue) % modulus
                 return Element(_unchecked: (), ordinal: Ordinal(inverse))
             }
